@@ -1,24 +1,8 @@
-
-import './App.css';
+import "./App.css";
+import AppRouter from "./routes/AppRouter";
 
 function App() {
-  return (
-    <div className="app">
-      <div className="left-side">
-
-	  </div>
-	  <div className="right-side">
-	<div className="right-inner">
-		<h1>welcome</h1>
-		<div className="inputs">
-			<input type="Email" placeholder="Email" />
-			<input type="Password" placeholder="Password" />
-		</div>
-			<button>Sign in</button>
-		</div>
-	  </div>
-    </div>
-  );
+  return <AppRouter />;
 }
 
 export default App;
