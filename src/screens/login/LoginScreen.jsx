@@ -1,13 +1,20 @@
 import React from "react";
 import { requests } from "../../api/requests";
+import "../../App.css";
 
-function LoginScreen() {
+function LoginScreen({ history }) {
   let onLoginPress = async () => {
     try {
       let email = document.getElementById("email").value;
       let password = document.getElementById("password").value;
-      let res = requests.auth.login({ email, password });
-    } catch (error) {}
+      let res = await requests.auth.login({ email, password });
+      if (res.status === 200) {
+        //TODO navigate to dashboard
+        history.push("/dashboard");
+      }
+    } catch (error) {
+      alert("password or username incorrect");
+    }
   };
 
   return (

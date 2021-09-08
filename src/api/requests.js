@@ -3,7 +3,7 @@ import Axios from "axios";
 let url = "http://192.168.20.59:8080"
 
 let axios = Axios.create({
-    url
+    baseURL: url
 })
 
 export let requests = {
