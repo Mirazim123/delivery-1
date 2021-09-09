@@ -11,7 +11,7 @@ export default function Dashboard() {
           <div className="flag_container">
             <img
               src={
-                "https://www.indiewire.com/wp-content/uploads/2021/06/MCDAVAT_FE094.jpg"
+                "https://www.indiewire.com/xwp-content/uploads/2021/06/MCDAVAT_FE094.jpg"
               }
               alt="Eglish"
               className="flag"
