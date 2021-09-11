@@ -3,13 +3,20 @@ import Axios from "axios";
 let url = "http://192.168.20.59:8080"
 
 let user = localStorage.getItem("user") || "";
-let parsedUser = JSON.parse(user);
+let parsedUser = {};
+try {
+    parsedUser = JSON.parse(user);
+} catch (error) {}
 
 let axios = Axios.create({
     baseURL: url,
-    headers: {
-        Token: parsedUser.token
+})
+
+axios.interceptors.request.use((e) => {
+    if (!!parsedUser.token) {
+        e.headers["Token"] = parsedUser.token;
     }
+    return e;
 })
 
 export let requests = {

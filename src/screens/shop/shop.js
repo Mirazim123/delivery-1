@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
-import products from "./ShopsData.json";
-import "./shop.css";
-import Rating from "../../components/general/Rating";
 import { requests } from "../../api/requests";
+import Header from "../../components/navigation/Header";
+import SideBar from "../../components/navigation/SideBar";
+import "./shop.css";
 
 export default function Shop() {
-  const [focused, setFocused] = useState(false);
-  const [products, setProducts] = useState([]);
   let effect = async () => {
     try {
       let res = requests.products.getProducts();
@@ -16,7 +14,17 @@ export default function Shop() {
     effect();
   }, []);
   return (
-    <div className="section-box1">
+    <div className="container">
+      <SideBar />
+      <div className="content">
+        <Header />
+      </div>
+    </div>
+  );
+}
+
+/*
+<div className="section-box1">
       <div cllassName="container-one">
         <p>.</p>
         <div className="header-two">
@@ -65,133 +73,132 @@ export default function Shop() {
 
             {/* <div className="box--1">
             <input type="range" id="boxx1" />
-          </div> */}
-            <p className="p-box">Categories</p>
-
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Appliances</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Audio</label>
-            </div>
-
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Cameras & Camcorders</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Car Electronics & GPS</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Cell Phones</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Computers & Tablets</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Health, Fitness & Beauty</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Office & School Supplies</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> TV & Home Theater</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Video Games</label>
-            </div>
-            <p className="p-box">Brands</p>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Insignia™</label>
-            </div>
-
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Samsung</label>
-            </div>
-
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Metra</label>
-            </div>
-
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> HP</label>
-            </div>
-
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Apple</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> GE</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Incipio</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> KitchenAid</label>
-            </div>
-            <div className="box-two">
-              <input type="radio" id="age" name="fav_language" />
-              <label htmlFor=""> Whirlpool</label>
-            </div>
           </div>
-          <div className="right-one">
-            <input
-              type="text"
-              className="input-one"
-              placeholder={focused ? "" : "Search Produce"}
-              onFocus={() => setFocused(true)}
-            />
-            <div className="products">
-              {products.map((e, i) => {
-                return (
-                  <div key={i} className="product-container">
-                    <img src={e.imageUrl} alt={e.name} />
-                    <div className="price-container">
-                      <Rating count={e.rating} />
-                      <p className="price">${e.price}</p>
-                    </div>
-                    <h3>{e.name}</h3>
-                    <span className="span">
-                      {e.description.substring(0, 30)}...
+          <p className="p-box">Categories</p>
+
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Appliances</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Audio</label>
+          </div>
+
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Cameras & Camcorders</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Car Electronics & GPS</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Cell Phones</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Computers & Tablets</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Health, Fitness & Beauty</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Office & School Supplies</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> TV & Home Theater</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Video Games</label>
+          </div>
+          <p className="p-box">Brands</p>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Insignia™</label>
+          </div>
+
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Samsung</label>
+          </div>
+
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Metra</label>
+          </div>
+
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> HP</label>
+          </div>
+
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Apple</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> GE</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Incipio</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> KitchenAid</label>
+          </div>
+          <div className="box-two">
+            <input type="radio" id="age" name="fav_language" />
+            <label htmlFor=""> Whirlpool</label>
+          </div>
+        </div >
+  <div className="right-one">
+    <input
+      type="text"
+      className="input-one"
+      placeholder={focused ? "" : "Search Produce"}
+      onFocus={() => setFocused(true)}
+    />
+    <div className="products">
+      {products.map((e, i) => {
+        return (
+          <div key={i} className="product-container">
+            <img src={e.imageUrl} alt={e.name} />
+            <div className="price-container">
+              <Rating count={e.rating} />
+              <p className="price">${e.price}</p>
+            </div>
+            <h3>{e.name}</h3>
+            <span className="span">
+              {e.description.substring(0, 30)}...
+                  </span>
+            <div className="container">
+              <span className="box6">
+                <span>
+                  <img src={img11} alt="" />
+                </span>{" "}
+                      Wishlist
                     </span>
-                    {/* <div className="container">
-                      <span className="box6">
-                        <span>
-                          <img src={img11} alt="" />
-                        </span>{" "}
-                        Wishlist
-                      </span>
-                      <span className="box7">
-                        <span>
-                          <img src={img12} alt="" />
-                        </span>{" "}
-                        Wile In Cart
-                      </span>
-                    </div> */}
-                  </div>
-                );
-              })}
+              <span className="box7">
+                <span>
+                  <img src={img12} alt="" />
+                </span>{" "}
+                      Wile In Cart
+                    </span>
             </div>
           </div>
-        </div>
-      </div>
+        );
+      })}
     </div>
-  );
-}
+  </div>
+      </div >
+    </div >
+  </div >
+ */

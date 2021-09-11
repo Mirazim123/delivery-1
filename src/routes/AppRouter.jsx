@@ -15,8 +15,14 @@ function AppRouter() {
   return (
     <BrowserRouter>
       <Switch>
-        <Route exact path="/" render={() => <Redirect to="/login" />} />
-        <Route path="/login" component={LoginScreen} />
+        {!authed ? (
+          <>
+            <Route exact path="/" render={() => <Redirect to="/login" />} />
+            <Route path="/login" component={LoginScreen} />
+          </>
+        ) : (
+          <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
+        )}
         <AuthRoute path="/dashboard" authed={authed} component={Dashboard} />
         <AuthRoute path="/shop" authed={authed} component={Shop} />
       </Switch>
