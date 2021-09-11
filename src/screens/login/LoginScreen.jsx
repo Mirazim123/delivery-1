@@ -10,7 +10,8 @@ function LoginScreen({ history }) {
       let res = await requests.auth.login({ email, password });
       if (res.status === 200) {
         //TODO navigate to dashboard
-        history.push("/dashboard");
+        history.push("/shop");
+        localStorage.setItem("user", JSON.stringify(res.data));
       }
     } catch (error) {
       alert("password or username incorrect");

@@ -1,9 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import products from "./ShopsData.json";
 import "./shop.css";
 import Rating from "../../components/general/Rating";
+import { requests } from "../../api/requests";
 
 export default function Shop() {
+  const [focused, setFocused] = useState(false);
+  const [products, setProducts] = useState([]);
+  let effect = async () => {
+    try {
+      let res = requests.products.getProducts();
+    } catch (error) {}
+  };
+  useEffect(() => {
+    effect();
+  }, []);
   return (
     <div className="section-box1">
       <div cllassName="container-one">
@@ -144,7 +155,8 @@ export default function Shop() {
             <input
               type="text"
               className="input-one"
-              placeholder="Search Produce"
+              placeholder={focused ? "" : "Search Produce"}
+              onFocus={() => setFocused(true)}
             />
             <div className="products">
               {products.map((e, i) => {
