@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { requests } from "../../api/requests";
 import "../../App.css";
 
@@ -29,6 +30,7 @@ function LoginScreen({ history }) {
             <input id="password" type="Password" placeholder="Password" />
           </div>
           <button onClick={onLoginPress}>Sign in</button>
+          <Link className="button" to="/register">Register</Link>
         </div>
       </div>
     </div>

@@ -3,6 +3,7 @@ import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
 import AuthRoute from "../components/general/AuthRoute";
 import Dashboard from "../screens/dashboard/dashboard";
 import LoginScreen from "../screens/login/LoginScreen";
+import Register from "../screens/register/register";
 import Shop from "../screens/shop/shop";
 
 function AppRouter() {
@@ -19,6 +20,7 @@ function AppRouter() {
           <>
             <Route exact path="/" render={() => <Redirect to="/login" />} />
             <Route path="/login" component={LoginScreen} />
+            <Route path="/register" component={Register} />
           </>
         ) : (
           <Route exact path="/" render={() => <Redirect to="/dashboard" />} />
