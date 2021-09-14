@@ -11,7 +11,7 @@ export default function Avatar() {
     <div className="avatar">
       <div className="details">
         <span className="name">{parsedUser.name}</span>
-        <span>admin</span>
+        <span>{parsedUser.role}</span>
       </div>
       <img src="https://celebritynews.pk/wp-content/uploads/2021/07/robert-downey-jr-shirtless-7.jpg" />
     </div>

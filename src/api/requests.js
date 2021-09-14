@@ -19,7 +19,11 @@ axios.interceptors.request.use((e) => {
     return e;
 });
 
-axios.interceptors.response.use((e) => e, (e) => console.log(e.response))
+axios.interceptors.response.use((e) => e, (e) => {
+    localStorage.clear();
+    window.location = "/login";
+    return e;
+})
 
 export let requests = {
     auth: {
@@ -27,6 +31,6 @@ export let requests = {
         register: (credentials) => axios.post("/signup", credentials),
     },
     products: {
-        getProducts: () => axios.get("/restaurant"),
+        getRestaurants: () => axios.get("/restaurant"),
     },
 };

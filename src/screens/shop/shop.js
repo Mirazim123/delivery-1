@@ -1,22 +1,27 @@
 import React, { useEffect, useState } from "react";
 import { requests } from "../../api/requests";
-import Header from "../../components/navigation/Header";
-import SideBar from "../../components/navigation/SideBar";
 import "./shop.css";
 
 export default function Shop() {
+  const [items, setItems] = useState([]);
   let effect = async () => {
     try {
-      let res = requests.products.getProducts();
+      let res = await requests.products.getRestaurants();
+      setItems(res.data);
     } catch (error) {}
   };
   useEffect(() => {
     effect();
   }, []);
   return (
-    <div className="container">
-      {/* <SideBar /> */}
-      <div className="content">{/* <Header /> */}</div>
+    <div>
+      {items.map((e, i) => {
+        return (
+          <div key={i}>
+            <img src={e.photo_url} />
+          </div>
+        );
+      })}
     </div>
   );
 }

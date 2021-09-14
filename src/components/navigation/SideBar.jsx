@@ -17,7 +17,7 @@ function SideBar({ history }) {
       <div className="content">
         <MenuItem icon="home" title="Dashboard" link="/dashboard" />
         <MenuItem icon="user" title="Users" link="/users" />
-        <MenuItem icon="shopping-cart" title="Products" link="/shop" />
+        <MenuItem icon="shopping-cart" title="Restaurants" link="/shop" />
         <MenuItem icon="grid" title="Orders" link="/orders" />
         <div className="footer">
           <MenuItem icon="log-out" title="Logout" onPress={onLogout} />
