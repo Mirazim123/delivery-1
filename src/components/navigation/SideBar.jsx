@@ -1,11 +1,12 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter } from "react-router";
 import MenuItem from "./MenuItem";
 import "./Sidebar.css";
 
-export default function SideBar() {
+function SideBar({ history }) {
   let onLogout = () => {
     localStorage.clear();
+    history.push("/login");
   };
   return (
     <div className="sidebar">
@@ -25,3 +26,5 @@ export default function SideBar() {
     </div>
   );
 }
+
+export default withRouter(SideBar);

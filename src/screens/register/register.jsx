@@ -32,8 +32,8 @@ function Register({ history }) {
             <input id="password" type="Password" placeholder="Password" />
             <br />
             <select name="cars" id="role">
-              <option value="volvo">Admin</option>
-              <option value="saab">User</option>
+              <option value="admin">Admin</option>
+              <option value="user">User</option>
             </select>
           </div>
           <button>Sign in</button>
