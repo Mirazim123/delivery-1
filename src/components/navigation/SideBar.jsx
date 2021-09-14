@@ -4,10 +4,9 @@ import MenuItem from "./MenuItem";
 import "./Sidebar.css";
 
 export default function SideBar() {
-  let clearLocal = async () => {
+  let onLogout = () => {
     localStorage.clear();
   };
-
   return (
     <div className="sidebar">
       <div className="logo">
@@ -19,9 +18,9 @@ export default function SideBar() {
         <MenuItem icon="user" title="Users" link="/users" />
         <MenuItem icon="shopping-cart" title="Products" link="/shop" />
         <MenuItem icon="grid" title="Orders" link="/orders" />
-        <Link onClick={clearLocal} className="h4" to="/register">
-          Log out
-        </Link>
+        <div className="footer">
+          <MenuItem icon="log-out" title="Logout" onPress={onLogout} />
+        </div>
       </div>
     </div>
   );

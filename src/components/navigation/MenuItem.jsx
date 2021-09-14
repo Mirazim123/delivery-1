@@ -3,9 +3,19 @@ import "./MenuItem.css";
 import FeatherIcon from "feather-icons-react";
 import { useLocation, withRouter } from "react-router";
 
-function MenuItem({ icon = "", title = "", history, link }) {
+function MenuItem({
+  icon = "",
+  title = "",
+  history,
+  link,
+  onPress: customPress,
+}) {
   let location = useLocation();
   let onPress = () => {
+    if (customPress !== undefined) {
+      customPress();
+      return;
+    }
     history.push(link);
   };
   return (

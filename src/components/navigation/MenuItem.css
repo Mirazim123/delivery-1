@@ -17,7 +17,7 @@
 
 .menu-item:hover {
     transition: 0.2s linear;
-    margin-left: 30px;
+    margin-left: 5px;
 }
 
 .active {
