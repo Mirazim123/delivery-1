@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { requests } from "../../api/requests";
+import FeatherIcon from "feather-icons-react";
 import "./shop.css";
 
 export default function Shop() {
@@ -19,6 +20,14 @@ export default function Shop() {
         return (
           <div className="item" key={i}>
             <img src={e.photo_url} />
+            <div className="foods">
+              <p>{e.name}</p>
+              {e.description}
+            </div>
+            <div className="icon">
+              <FeatherIcon icon={"trash-2"} />
+              <FeatherIcon icon={"edit"} />
+            </div>
           </div>
         );
       })}
