@@ -11,6 +11,10 @@ function LoginScreen({ history }) {
       let res = await requests.auth.login({ email, password });
       if (res.status === 200) {
         //TODO navigate to dashboard
+        if (res.data.role !== "user") {
+          alert("You are not allowed to use this website");
+          return;
+        }
         localStorage.setItem("user", JSON.stringify(res.data));
         history.push("/shop");
       }
@@ -30,7 +34,9 @@ function LoginScreen({ history }) {
             <input id="password" type="Password" placeholder="Password" />
           </div>
           <button onClick={onLoginPress}>Sign in</button>
-          <Link className="button" to="/register">Register</Link>
+          <Link className="button" to="/register">
+            Register
+          </Link>
         </div>
       </div>
     </div>

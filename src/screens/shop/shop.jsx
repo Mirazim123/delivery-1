@@ -14,10 +14,10 @@ export default function Shop() {
     effect();
   }, []);
   return (
-    <div>
+    <div className="item-container">
       {items.map((e, i) => {
         return (
-          <div key={i}>
+          <div className="item" key={i}>
             <img src={e.photo_url} />
           </div>
         );
