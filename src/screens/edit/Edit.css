@@ -1,0 +1,16 @@
+.edit {
+    width: 93%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    margin: auto;
+    border-radius: 7.5px;
+}
+
+.edit .img {
+    width: 20%;
+    height: 100%;
+}
