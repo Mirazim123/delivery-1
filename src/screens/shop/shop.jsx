@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { requests } from "../../api/requests";
+import FeatherIcon from "feather-icons-react";
 import "./shop.css";
 import FeatherIcon from "feather-icons-react";
 
