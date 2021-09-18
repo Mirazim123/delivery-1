@@ -12,6 +12,14 @@ export default function Edit() {
           alt=""
         />
       </div>
+      <div className="inputname">
+        <input type="text" placeholder="Watch" />
+        <textarea name="Text1" cols="40" rows="5"></textarea>
+        <div className="inbutton">
+          <button>Cancel</button>
+          <button>Save</button>
+        </div>
+      </div>
     </div>
   );
 }
