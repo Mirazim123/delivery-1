@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { requests } from "../../api/requests";
 import FeatherIcon from "feather-icons-react";
 import "./shop.css";
-import FeatherIcon from "feather-icons-react";
 
 export default function Shop({ history }) {
   const [items, setItems] = useState([]);
